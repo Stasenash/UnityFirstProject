@@ -503,6 +503,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   offsetFromWall: 0.1
+  spriteLeft: {fileID: 1662698073010213696, guid: b042d8df7e95e6341b6b60cf591333ff, type: 3}
+  spriteRight: {fileID: -350773885812749289, guid: af093d0e1a99918448f91e07c376efee, type: 3}
+  spriteUp: {fileID: -4778624461764053770, guid: 11a98f2a15252f843b8022753b1a7f3a, type: 3}
+  spriteDown: {fileID: -2934438944226731720, guid: 215248ab935c1b84e8dd95e6fcdd654a, type: 3}
+  spriteStay: {fileID: 2779023822413464520, guid: 1860a76b9900a074d89f9aa2c33eeb4a, type: 3}
 --- !u!4 &556415772
 Transform:
   m_ObjectHideFlags: 0
@@ -513,7 +518,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -562,7 +567,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6983202077367773121, guid: cf79a08e7f18a4c4e9f8e11cee319b9f, type: 3}
+  m_Sprite: {fileID: 2779023822413464520, guid: 1860a76b9900a074d89f9aa2c33eeb4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

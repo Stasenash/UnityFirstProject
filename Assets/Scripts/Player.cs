@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float offsetFromWall = 0.01f;
+    [SerializeField] private Animator animator;
     private bool isMoving;
     private Vector2 direction;
     private float screenHalfWidth;
@@ -12,14 +13,16 @@ public class Player : MonoBehaviour
     private Camera mainCamera;
     private float playerHalfWidth;
     private float playerHalfHeight;
-
+    private SpriteRenderer renderer;
+    
+    
     private void Start()
     {
         mainCamera = Camera.main;
         screenHalfWidth = mainCamera.orthographicSize * mainCamera.aspect;
         screenHalfHeight = mainCamera.orthographicSize;
         
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer = GetComponent<SpriteRenderer>();
         if (renderer == null) return;
         playerHalfWidth = renderer.bounds.size.x / 2;
         playerHalfHeight = renderer.bounds.size.y / 2;
@@ -34,12 +37,16 @@ public class Player : MonoBehaviour
 
     public void StartMoving()
     {
+        Vector2[] directions = { Vector2.left, Vector2.right, Vector2.up, Vector2.down };
+        int dirNum = GetRandomDirectionNumber(directions.Length);
+        direction = directions[dirNum];
+        animator.SetInteger("direction", dirNum);
         isMoving = true;
-        direction = GetRandomDirection();
     }
 
     public void StopMoving()
     {
+        animator.SetInteger("direction", 4);
         isMoving = false;
     }
 
@@ -48,10 +55,9 @@ public class Player : MonoBehaviour
         transform.Translate(direction * (playerSpeed * Time.deltaTime));
     }
 
-    private Vector2 GetRandomDirection()
+    private int GetRandomDirectionNumber(int lenght)
     {
-        Vector2[] directions = { Vector2.left, Vector2.right, Vector2.up, Vector2.down };
-        return directions[UnityEngine.Random.Range(0, directions.Length)];
+        return UnityEngine.Random.Range(0, lenght);
     }
     
     private void CheckScreenBounds()
